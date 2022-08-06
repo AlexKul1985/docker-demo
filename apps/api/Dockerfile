@@ -1,7 +1,7 @@
 FROM node:14-alpine
 WORKDIR /opt/app 
-ADD ./*.json . 
+ADD ./*.json ./ 
 RUN npm install
-ADD . . 
+ADD ./ ./ 
 RUN npm run build api 
 CMD ["node", "./dist/apps/api/main.js"]

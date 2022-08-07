@@ -21,7 +21,7 @@ export class ApiController {
 		if (!file.mimetype.includes('image')) {
 			throw new BadRequestException('Неверный формат файла')
 		}
-		console.log({ width: Number(params.width), height: Number(params.height), quality: Number(params.quality), format: params.type })
+		console.log('Data: ',{ width: Number(params.width), height: Number(params.height), quality: Number(params.quality), format: params.type })
 		const res = await this.rmqService.send<GenerateImages.Request, GenerateImages.Response>(GenerateImages.Topic, {
 			image: saveFile.buffer.toString('base64'),
 			requirements: [
